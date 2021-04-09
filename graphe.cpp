@@ -1,4 +1,6 @@
 #include "graphe.h"
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 #include <fstream>
 #include <iostream>
 
@@ -38,6 +40,8 @@ graphe::graphe(const std::string& nomDuFichier) : d_fs{}, d_aps{}
 
 void graphe::distance(int r)
 {
+    d_dist_sommet = r;
+
     int nb_som = d_aps[0];
     int i=0, j=1, k=0, ifin, s, t, it;
 
@@ -214,6 +218,53 @@ void graphe::traverse(int s)
     }
 }
 
+void graphe::adjacence()
+{
+    int k;
+    int n = d_aps[0];
+    int m = d_fs[0] - n;
+
+    d_matrice_adjacence.resize(n+1);
+
+    for(int i = 0; i<= n; ++i)
+        d_matrice_adjacence[i].resize(n+1);
+
+    d_matrice_adjacence[0][0] = n;
+    d_matrice_adjacence[0][1] = m;
+
+    //for(int j = 1; j<=n; ++j)
+            //d_matrice_adjacence[i][j]=0;
+
+    for(int i = 1; i<=n; ++i)
+    {
+        k = d_aps[i];
+        while(d_fs[k] != 0)
+        {
+            d_matrice_adjacence[i][d_fs[k]] = 1;
+            k++;
+        }
+    }
+}
+
+void graphe::sauvgarde() const
+{
+    std::ofstream ost("grapheDeTest.txt");
+
+    ost<<"aps : "<<getAps()<<'\n';
+    ost<<"fs : "<<getFs()<<'\n';
+    ost<<'\n';
+    ost<<"rang : "<<getRangddi()<<'\n'<<'\n';
+    ost<<"distance depuis le sommet "<<getNumSommet()<<" : "<<getDist()<<'\n'<<'\n';
+    ost<<"tarjan : \n";
+    ost<<"prem : "<<getTarjanPrem()<<'\n';
+    ost<<"pilch : "<<getTarjanPilch()<<'\n';
+    ost<<"cfc : "<<getTarjanCfc()<<'\n';
+    ost<<"num : "<<getTarjanNum()<<'\n'<<'\n';
+    ost<<"Matrice d'adjacence : \n"<<getAdjacence()<<'\n';
+
+
+}
+
 std::string graphe::getFs() const
 {
     std::string str = "";
@@ -305,6 +356,26 @@ std::string graphe::getTarjanNum() const
     return str;
 }
 
+std::string graphe::getAdjacence() const
+{
+    std::string str = "";
+
+    for(int i=0; i<=d_matrice_adjacence[0][0]; ++i)
+        {
+            for(int j=0; j<=d_matrice_adjacence[0][0]; ++j)
+                str += (std::to_string(d_matrice_adjacence[i][j]) + " ");
+
+            str += '\n';
+        }
+
+    return str;
+}
+
+int graphe::getNumSommet() const
+{
+    return d_dist_sommet;
+}
+
 void graphe::tarjan()
 {
     d_tarjan_num.resize(d_aps[0]+1);
@@ -333,6 +404,7 @@ void graphe::build()
     distance(0);
     rang();
     tarjan();
+    adjacence();
 }
 
 

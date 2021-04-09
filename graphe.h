@@ -23,6 +23,12 @@ public :
     void traverse(int s);
     void tarjan();
 
+    //adj
+    void adjacence();
+
+    //save
+    void sauvgarde() const;
+
     //vue
     std::string getFs() const;
     std::string getAps() const;
@@ -33,6 +39,8 @@ public :
     std::string getTarjanPilch() const;
     std::string getTarjanCfc() const;
     std::string getTarjanNum() const;
+    std::string getAdjacence() const;
+    int getNumSommet() const;
 
     //build
     void build();
@@ -43,6 +51,7 @@ private :
 
     //distance
     std::vector<int> d_dist;
+    int d_dist_sommet;
 
     //rang
     std::vector<int> d_rang;
@@ -59,6 +68,10 @@ private :
     std::vector<int> d_tarjan_pred;
     std::vector<int> d_tarjan_ro;
     std::vector<bool> d_tarjan_entarj;
+
+    //adj
+    std::vector<std::vector<int>> d_matrice_adjacence;
+
 
 
     int d_tarjan_p = 0;
