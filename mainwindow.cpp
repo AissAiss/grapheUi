@@ -65,3 +65,39 @@ void MainWindow::on_pushButton_save_clicked()
     msgBox.setText("Votre document à été sauvgardé !");
     msgBox.exec();
 }
+
+void MainWindow::on_pushButton_build_arbre_clicked()
+{
+    QString str = ui->lineEdit_nomDuFichier_arbre->text();
+
+    A = new arbre(str.toStdString());
+
+    A->codage();
+
+    ui->label_codage_vector->setText(QString::fromStdString(A->getCodage()));
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include "graphe.h"
+#include "arbre.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,8 +27,11 @@ private slots:
 
     void on_pushButton_save_clicked();
 
+    void on_pushButton_build_arbre_clicked();
+
 private:
     Ui::MainWindow *ui;
     graphe* G;
+    arbre* A;
 };
 #endif // MAINWINDOW_H

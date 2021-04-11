@@ -255,7 +255,7 @@ void graphe::sauvgarde() const
     ost<<'\n';
     ost<<"rang : "<<getRangddi()<<'\n'<<'\n';
     ost<<"distance depuis le sommet "<<getNumSommet()<<" : "<<getDist()<<'\n'<<'\n';
-    ost<<"tarjan : \n";
+    ost<<"tarjan \n";
     ost<<"prem : "<<getTarjanPrem()<<'\n';
     ost<<"pilch : "<<getTarjanPilch()<<'\n';
     ost<<"cfc : "<<getTarjanCfc()<<'\n';
