@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 /*-----QWidget-----*/
 QWidget
 {
-	background-color: #3a3a3a;
+	background-color: #ededed;
 	color: #fff;
 	selection-background-color: #b78620;
 	selection-color: #000;
@@ -35,7 +35,7 @@ QWidget
 QLabel
 {
 	background-color: transparent;
-	color: #fff;
+	color: #4c4c4c;
 
 }
 

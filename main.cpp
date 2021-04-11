@@ -9,7 +9,8 @@ int main(int argc, char *argv[])
     QFile styleSheetFile("D:/Git/GrapheUi/Combinear.qss");
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
-    a.setStyleSheet(styleSheet);
+    //a.setStyleSheet(styleSheet); // .qss
+
 
     MainWindow w;
     w.show();
