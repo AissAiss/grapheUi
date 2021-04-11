@@ -11,12 +11,14 @@ CONFIG += c++11
 SOURCES += \
     arbre.cpp \
     graphe.cpp \
+    grapheValue.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     arbre.h \
     graphe.h \
+    grapheValue.h \
     mainwindow.h
 
 FORMS += \

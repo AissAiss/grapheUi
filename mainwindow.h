@@ -5,6 +5,7 @@
 
 #include "graphe.h"
 #include "arbre.h"
+#include "grapheValue.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,7 +32,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    graphe* G;
+    grapheValue* G;
     arbre* A;
 };
 #endif // MAINWINDOW_H

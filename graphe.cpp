@@ -4,6 +4,10 @@
 #include <fstream>
 #include <iostream>
 
+
+graphe::graphe() : d_fs{}, d_aps{}
+{}
+
 graphe::graphe(const std::string& nomDuFichier) : d_fs{}, d_aps{}
 {
     std::ifstream ist(nomDuFichier);
@@ -162,6 +166,11 @@ int graphe::depiler(std::vector<int>& v)
     int tmp = v.back();
     v.pop_back();
     return tmp;
+}
+
+int graphe::getNbSommet()
+{
+    return d_aps[0];
 }
 
 void graphe::depiler2(int s, std::vector<int>& v)

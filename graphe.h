@@ -6,6 +6,7 @@
 
 class graphe {
 public :
+    graphe();
     graphe(const std::string& nomDuFichier);
 
     //distance
@@ -29,6 +30,9 @@ public :
     //save
     void sauvgarde() const;
 
+    //getter
+    int getNbSommet();
+
     //vue
     std::string getFs() const;
     std::string getAps() const;
@@ -45,9 +49,13 @@ public :
     //build
     void build();
 
-private :
+protected :
+
     std::vector<int> d_fs;
     std::vector<int> d_aps;
+
+private :
+
 
     //distance
     std::vector<int> d_dist;

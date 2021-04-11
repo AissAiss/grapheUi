@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "grapheValue.h"
 
 #include <QString>
 #include <QMessageBox>
@@ -21,7 +22,8 @@ void MainWindow::on_pushButton_build_clicked()
 {
     QString str = ui->lineEdit_nomDuFichier->text();
 
-    G = new graphe(str.toStdString());
+    G = new grapheValue(str.toStdString());
+
 
     G->rang();
     G->tarjan();
@@ -39,8 +41,12 @@ void MainWindow::on_pushButton_build_clicked()
     G->distance(1);
     ui->label_dist_vector->setText(QString::fromStdString(G->getDist()));
     ui->label_rang_vector->setText(QString::fromStdString(G->getRangddi()));
+    ui->label_Matrice_arrete_vector->setText(QString::fromStdString(G->getMatricePoids()));
 
     ui->pushButton_save->setEnabled(true);
+
+    //limitation spinBox
+    ui->spinBox_distance->setRange(1,G->getNbSommet());
 
 
 }
@@ -48,6 +54,7 @@ void MainWindow::on_pushButton_build_clicked()
 void MainWindow::on_pushButton_parcourir_clicked()
 {
     int nb = ui->spinBox_distance->value();
+
 
     G->distance(nb);
 
