@@ -29,7 +29,7 @@ void MainWindow::on_pushButton_build_clicked()
 
         GV->rang();
         GV->tarjan();
-        GV->adjacence();
+        //GV->adjacence();
         GV->dijkstra(1);
 
         ui->label_aps_vector->setText(QString::fromStdString(GV->getAps()));

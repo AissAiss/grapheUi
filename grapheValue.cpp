@@ -41,6 +41,18 @@ grapheValue::grapheValue(const std::string &nomFic) : graphe{}, d_matricePoidsAr
         k++;
     }
 
+    this->adjacence();
+
+    for(unsigned int i = 1; i < d_matrice_adjacence.size(); ++i)
+    {
+        for(unsigned int j = 1; j < d_matrice_adjacence[i].size(); ++j)
+        {
+            if(d_matrice_adjacence [i][j] == 0 )
+            {
+                d_matricePoidsArrete[i][j] = -1;
+            }
+        }
+    }
 }
 
 void grapheValue::dijkstra(int s)
@@ -51,12 +63,13 @@ void grapheValue::dijkstra(int s)
     X.push_back(s);
 
     vector<int> S;
-    for(int i = 1 ; i<d_aps[0] ; ++i)
+    for(int i = 1 ; i<=d_aps[0] ; ++i)
     {
-        if(i != s)
-        S.push_back(i);
-    }
+        if(i != s){
+            S.push_back(i);
 
+        }
+    }
 
 
     for(int i = 0 ; i<= d_aps[0] ; ++i)
@@ -86,7 +99,7 @@ void grapheValue::dijkstra(int s)
                 if(dijkstra_appartient(k,S))
                 {
                     int v = d_dijkstra_dist[j]+d_matricePoidsArrete[j][k];
-                    if(v < d_dijkstra_dist[k])
+                    if(v < d_dijkstra_dist[k] && d_matricePoidsArrete[j][k] != -1)
                     {
                         d_dijkstra_dist[k] = v;
                         d_dijkstra_pred[k] = j;

@@ -53,6 +53,7 @@ protected :
 
     std::vector<int> d_fs;
     std::vector<int> d_aps;
+    std::vector<std::vector<int>> d_matrice_adjacence;
 
 private :
 
@@ -78,7 +79,7 @@ private :
     std::vector<bool> d_tarjan_entarj;
 
     //adj
-    std::vector<std::vector<int>> d_matrice_adjacence;
+
 
 
 
