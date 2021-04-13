@@ -627,7 +627,7 @@ QListView::item:hover {
 QCheckBox
 {
 	background-color: transparent;
-    color: lightgray;
+    color: #0E0E0E;
 	border: none;
 
 }
@@ -635,8 +635,8 @@ QCheckBox
 
 QCheckBox::indicator
 {
-    background-color: #323232;
-    border: 1px solid darkgray;
+    background-color: transparent;
+    border: 1px solid #051a39;
     width: 12px;
     height: 12px;
 
@@ -645,9 +645,9 @@ QCheckBox::indicator
 
 QCheckBox::indicator:checked
 {
-    image:url("./ressources/check.png");
-	background-color: #b78620;
-    border: 1px solid #3a546e;
+    /*image:url("./ressources/check.png");*/
+	background-color: rgba(25, 234, 28, 20%); /*color check*/
+    border: 1px solid #19EA1C;
 
 }
 
