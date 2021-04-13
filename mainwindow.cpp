@@ -29,7 +29,6 @@ void MainWindow::on_pushButton_build_clicked()
 
         GV->rang();
         GV->tarjan();
-        //GV->adjacence();
         GV->dijkstra(1);
 
         ui->label_aps_vector->setText(QString::fromStdString(GV->getAps()));
@@ -124,8 +123,12 @@ void MainWindow::on_pushButton_parcourir_clicked()
 void MainWindow::on_pushButton_save_clicked()
 {
     QMessageBox msgBox;
+    if(d_estValue){
+        GV->sauvgarde();
+    }else{
+        G->sauvgarde();
+    }
 
-    GV->sauvgarde();
     msgBox.setText("Votre document à été sauvgardé !");
     msgBox.exec();
 

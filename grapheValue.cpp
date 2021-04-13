@@ -47,12 +47,31 @@ grapheValue::grapheValue(const std::string &nomFic) : graphe{}, d_matricePoidsAr
     {
         for(unsigned int j = 1; j < d_matrice_adjacence[i].size(); ++j)
         {
-            if(d_matrice_adjacence [i][j] == 0 )
+            if(d_matrice_adjacence [i][j] == 0 && i!=j )
             {
-                d_matricePoidsArrete[i][j] = -1;
+                d_matricePoidsArrete[i][j] = INT_MAX;
             }
         }
     }
+}
+
+void grapheValue::sauvgarde() const
+{
+    std::ofstream ost("grapheDeTest.txt");
+    ost<<"aps : "<<getAps()<<'\n';
+    ost<<"fs : "<<getFs()<<'\n';
+    ost<<'\n';
+    ost<<"rang : "<<getRangddi()<<'\n'<<'\n';
+    ost<<"distance depuis le sommet "<<getNumSommet()<<" : "<<getDist()<<'\n'<<'\n';
+    ost<<"tarjan \n";
+    ost<<"prem : "<<getTarjanPrem()<<'\n';
+    ost<<"pilch : "<<getTarjanPilch()<<'\n';
+    ost<<"cfc : "<<getTarjanCfc()<<'\n';
+    ost<<"num : "<<getTarjanNum()<<'\n'<<'\n';
+    ost<<"Matrice d'adjacence : \n"<<getAdjacence()<<'\n';
+    ost<<"Dijkstra : \n";
+    ost<<"Distance : "<<getDijkstraDist()<<"\n";
+    ost<<"Prédecesseur : "<<getDijkstraPred()<<"\n";
 }
 
 void grapheValue::dijkstra(int s)
@@ -99,7 +118,7 @@ void grapheValue::dijkstra(int s)
                 if(dijkstra_appartient(k,S))
                 {
                     int v = d_dijkstra_dist[j]+d_matricePoidsArrete[j][k];
-                    if(v < d_dijkstra_dist[k] && d_matricePoidsArrete[j][k] != -1)
+                    if(v < d_dijkstra_dist[k])
                     {
                         d_dijkstra_dist[k] = v;
                         d_dijkstra_pred[k] = j;
@@ -148,7 +167,14 @@ std::string grapheValue::getMatricePoids() const
     for(unsigned int i=1; i<d_matricePoidsArrete.size(); ++i)
         {
             for(unsigned int j=1; j<d_matricePoidsArrete.size(); ++j)
-                str += (std::to_string(d_matricePoidsArrete[i][j]) + " ");
+            {
+                if(d_matricePoidsArrete[i][j] != INT_MAX)
+                {
+                    str += (std::to_string(d_matricePoidsArrete[i][j]) + " ");
+                }else{
+                    str+= "0 ";
+                }
+            }
 
             str += '\n';
         }
@@ -162,7 +188,11 @@ std::string grapheValue::getDijkstraDist() const
 
     for(unsigned int i=1; i<d_dijkstra_dist.size(); ++i)
         {
-            str += (std::to_string(d_dijkstra_dist[i]) + " ");
+            if(d_dijkstra_dist[i] != INT_MAX && d_dijkstra_dist[i] >= -1)
+                str += (std::to_string(d_dijkstra_dist[i]) + " ");
+            else{
+                str +="-1 ";
+            }
         }
 
     return str;

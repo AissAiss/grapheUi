@@ -12,6 +12,8 @@ class grapheValue : public graphe{
 public :
     grapheValue(const std::string& nomFic);
 
+    virtual void sauvgarde() const override;
+
     void dijkstra(int s);
     bool dijkstra_appartient(int k, vector<int> S);
     int dijkstra_dmin(vector<int> &S, vector<int> &d);

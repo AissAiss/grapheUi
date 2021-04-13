@@ -28,7 +28,7 @@ public :
     void adjacence();
 
     //save
-    void sauvgarde() const;
+    virtual void sauvgarde() const;
 
     //getter
     int getNbSommet();
