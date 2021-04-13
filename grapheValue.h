@@ -12,11 +12,20 @@ class grapheValue : public graphe{
 public :
     grapheValue(const std::string& nomFic);
 
-    //mettre kruskal + dijkstra
-    std::string getMatricePoids() const;
+    void dijkstra(int s);
+    bool dijkstra_appartient(int k, vector<int> S);
+    int dijkstra_dmin(vector<int> &S, vector<int> &d);
+
+    //dijkstra
+    std::string getMatricePoids() const;   
+    std::string getDijkstraDist() const;
+    std::string getDijkstraPred() const;
+
 
 private :
     vector<vector<int>> d_matricePoidsArrete;
+    vector <int> d_dijkstra_dist;
+    vector <int> d_dijkstra_pred;
 };
 
 #endif // GRAPHEORIENTE_H

@@ -105,8 +105,12 @@ void graphe::rang()
     d_rang_ddi.resize(n+1, 0);
     d_rang_pilch.resize(n+1, 0);
     d_rang_prem.resize(n+1, 0);
+    for(int i=1; i <=n ; i++)
+    {
+        d_rang_ddi[i]=0;
+    }
 
-    //for(int i=1; i <=n ; i++) ddi[i]=0;
+    d_rang_ddi[0] = d_aps[0];
 
     //calcul de ddi
     for(int i=1; i <= taillefs ; i++)
@@ -117,7 +121,7 @@ void graphe::rang()
             d_rang_ddi[s]++;
     }
     //calcul du rang
-    d_rang_pilch[0]=0;
+    /*d_rang_pilch[0]=0;
 
     for(s = 1; s <= n; s++)
     {
@@ -147,7 +151,7 @@ void graphe::rang()
         }
         s = d_rang_pilch[0];
         d_rang_prem[k+1] = s;
-    }
+    }*/
 }
 
 void graphe::empiler(int s, std::vector<int>& v)

@@ -43,6 +43,91 @@ grapheValue::grapheValue(const std::string &nomFic) : graphe{}, d_matricePoidsAr
 
 }
 
+void grapheValue::dijkstra(int s)
+{
+    d_dijkstra_dist.clear();
+    d_dijkstra_pred.clear();
+    vector<int> X;
+    X.push_back(s);
+
+    vector<int> S;
+    for(int i = 1 ; i<d_aps[0] ; ++i)
+    {
+        if(i != s)
+        S.push_back(i);
+    }
+
+
+
+    for(int i = 0 ; i<= d_aps[0] ; ++i)
+    {
+        d_dijkstra_dist.push_back(d_matricePoidsArrete[s][i]);
+        d_dijkstra_pred.push_back(1);
+    }
+
+    int indiceJ = d_aps[s];
+    int j = d_fs[indiceJ];
+
+    while(!S.empty())
+    {
+        if(j<INT_MAX){
+            for(unsigned int i = 0 ; i<S.size(); ++i)
+            {
+                if(S[i] == j)
+                {
+                    S.erase(S.begin()+i);
+                }
+            }
+            X.push_back(j);
+            int indiceK = d_aps[j];
+            int k = d_fs[indiceK];
+            while(k!=0)
+            {
+                if(dijkstra_appartient(k,S))
+                {
+                    int v = d_dijkstra_dist[j]+d_matricePoidsArrete[j][k];
+                    if(v < d_dijkstra_dist[k])
+                    {
+                        d_dijkstra_dist[k] = v;
+                        d_dijkstra_pred[k] = j;
+                    }
+                }
+                indiceK++;
+                k = d_fs[indiceK];
+            }
+        }
+        j = dijkstra_dmin(S,d_dijkstra_dist);
+    }
+}
+
+bool grapheValue::dijkstra_appartient(int k, vector<int> S)
+{
+    for(unsigned int i = 0 ; i<S.size() ; ++i)
+    {
+        if(S[i]==k)
+            return true;
+    }
+    return false;
+}
+
+int grapheValue::dijkstra_dmin(vector<int>& S, vector<int>& d)
+{
+    if(!S.empty())
+    {
+        int mini = INT_MAX;
+        int indice = 0;
+        for(unsigned int i = 0 ; i<S.size() ; ++i){
+            if(mini > d[S[i]])
+            {
+                mini = d[S[i]];
+                indice = i;
+            }
+        }
+        return S[indice];
+    }
+    else return INT_MAX;
+}
+
 std::string grapheValue::getMatricePoids() const
 {
     std::string str = "";
@@ -53,6 +138,30 @@ std::string grapheValue::getMatricePoids() const
                 str += (std::to_string(d_matricePoidsArrete[i][j]) + " ");
 
             str += '\n';
+        }
+
+    return str;
+}
+
+std::string grapheValue::getDijkstraDist() const
+{
+    std::string str = "";
+
+    for(unsigned int i=1; i<d_dijkstra_dist.size(); ++i)
+        {
+            str += (std::to_string(d_dijkstra_dist[i]) + " ");
+        }
+
+    return str;
+}
+
+std::string grapheValue::getDijkstraPred() const
+{
+    std::string str = "";
+
+    for(unsigned int i=1; i<d_dijkstra_pred.size(); ++i)
+        {
+            str += (std::to_string(d_dijkstra_pred[i]) + " ");
         }
 
     return str;

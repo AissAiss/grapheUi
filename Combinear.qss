@@ -23,10 +23,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 /*-----QWidget-----*/
 QWidget
 {
-	background-color: #ededed;
+	background-color: #FFFFFF;
 	color: #fff;
-	selection-background-color: #b78620;
-	selection-color: #000;
+	selection-background-color: rgba(144, 202, 249, 30%);
+	selection-color: #0E0E0E;
 
 }
 
@@ -35,7 +35,7 @@ QWidget
 QLabel
 {
 	background-color: transparent;
-	color: #4c4c4c;
+	color: #0E0E0E;
 
 }
 
@@ -179,8 +179,9 @@ QToolButton:checked
 /*-----QPushButton-----*/
 QPushButton
 {
-	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(84, 84, 84, 255),stop:1 rgba(59, 59, 59, 255));
-	color: #ffffff;
+	background-color: #B0BEC5; 
+	/*qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(84, 84, 84, 255),stop:1 rgba(65, 198, 29, 1));*/
+	color: #0E0E0E;
 	min-width: 80px;
 	border-style: solid;
 	border-width: 1px;
@@ -211,8 +212,8 @@ QPushButton::disabled
 
 QPushButton::hover
 {
-	background-color: rgba(183, 134, 32, 20%);
-	border: 1px solid #b78620;
+	background-color: rgba(25, 234, 28, 20%);
+	border: 1px solid #19EA1C;
 
 }
 
@@ -236,8 +237,8 @@ QPushButton::checked
 /*-----QLineEdit-----*/
 QLineEdit
 {
-	background-color: #131313;
-	color : #eee;
+	background-color: transparent;
+	color : #0E0E0E;
 	border: 1px solid #343434;
 	border-radius: 2px;
 	padding: 3px;
@@ -383,12 +384,11 @@ QComboBox::down-arrow
 }
 
 
-/*-----QSpinBox & QDateTimeEdit-----*/
-QSpinBox,
-QDateTimeEdit 
+/*-----QSpinBox-----*/
+QSpinBox 
 {
-    background-color: #131313;
-	color : #eee;
+    background-color: transparent;
+	color : #0E0E0E;
 	border: 1px solid #343434;
 	padding: 3px;
 	padding-left: 5px;
@@ -396,83 +396,20 @@ QDateTimeEdit
 
 }
 
-
-QSpinBox::up-button, 
-QDateTimeEdit::up-button
+QSpinBox::up-button:hover
 {
-	border-top-right-radius:2px;
-	background-color: #777777;
-    width: 16px; 
-    border-width: 1px;
+	background-color: rgba(25, 234, 28, 20%);
+
+}
+
+QSpinBox::down-button:hover
+{
+	background-color: rgba(254, 26, 26, 20%);
 
 }
 
 
-QSpinBox::up-button:hover, 
-QDateTimeEdit::up-button:hover
-{
-	background-color: #585858;
 
-}
-
-
-QSpinBox::up-button:pressed, 
-QDateTimeEdit::up-button:pressed
-{
-	background-color: #252525;
-    width: 16px; 
-    border-width: 1px;
-
-}
-
-
-QSpinBox::up-arrow,
-QDateTimeEdit::up-arrow
-{
-    image: url(://arrow-up.png);
-    width: 7px;
-    height: 7px;
-
-}
-
-
-QSpinBox::down-button, 
-QDateTimeEdit::down-button
-{
-	border-bottom-right-radius:2px;
-	background-color: #777777;
-    width: 16px; 
-    border-width: 1px;
-
-}
-
-
-QSpinBox::down-button:hover, 
-QDateTimeEdit::down-button:hover
-{
-	background-color: #585858;
-
-}
-
-
-QSpinBox::down-button:pressed, 
-QDateTimeEdit::down-button:pressed
-{
-	background-color: #252525;
-    width: 16px; 
-    border-width: 1px;
-
-}
-
-
-QSpinBox::down-arrow,
-QDateTimeEdit::down-arrow
-{
-    image: url(://arrow-down.png);
-    width: 7px;
-    height: 7px;
-
-}
 
 
 /*-----QGroupBox-----*/

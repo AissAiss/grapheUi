@@ -30,9 +30,13 @@ private slots:
 
     void on_pushButton_build_arbre_clicked();
 
+    void on_pushButton_parcourir_dijkstra_clicked();
+
 private:
     Ui::MainWindow *ui;
-    grapheValue* G;
+    bool d_estValue;
+    grapheValue* GV;
+    graphe* G;
     arbre* A;
 };
 #endif // MAINWINDOW_H
