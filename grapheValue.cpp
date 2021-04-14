@@ -104,6 +104,9 @@ void grapheValue::sauvgarde() const
         dij<<"\n";
         succ.clear();
     }
+    dij.close();
+
+    std::ofstream arbreDij("DijkstraArbre.txt");
 
 }
 

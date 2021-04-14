@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Aissoui Froelich Mustafic Bangard Projet Graphe</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_distance_titre">
@@ -567,56 +567,6 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>551</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_12">
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLabel" name="label_text_nomDuFichier">
-         <property name="text">
-          <string>Nom du fichier : </string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_nomDuFichier"/>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_build">
-         <property name="text">
-          <string>Build</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_save">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>Save</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="checkBox_value">
-       <property name="text">
-        <string>Valué</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
       <x>1250</x>
       <y>70</y>
       <width>521</width>
@@ -710,18 +660,69 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton_dessiner">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>1240</x>
-      <y>560</y>
-      <width>93</width>
-      <height>28</height>
+      <x>20</x>
+      <y>30</y>
+      <width>641</width>
+      <height>34</height>
      </rect>
     </property>
-    <property name="text">
-     <string>dessiner</string>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_16">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_12">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label_text_nomDuFichier">
+           <property name="text">
+            <string>Nom du fichier : </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_nomDuFichier"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_build">
+           <property name="text">
+            <string>Build</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_save">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Save</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_value">
+         <property name="text">
+          <string>Valué</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_dessiner">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>dessiner</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

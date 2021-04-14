@@ -68,6 +68,7 @@ void MainWindow::on_pushButton_build_clicked()
         ui->label_dijkstra_pred_vector->setText(QString::fromStdString(GV->getDijkstraPred()));
 
         ui->pushButton_save->setEnabled(true);
+        ui->pushButton_dessiner->setEnabled(true);
 
         //limitation spinBox
         ui->spinBox_distance->setRange(1,GV->getNbSommet());
@@ -108,6 +109,7 @@ void MainWindow::on_pushButton_build_clicked()
         ui->pushButton_parcourir_dijkstra->hide();
 
         ui->pushButton_save->setEnabled(true);
+        ui->pushButton_dessiner->setEnabled(true);
 
         //limitation spinBox
         ui->spinBox_distance->setRange(1,G->getNbSommet());
