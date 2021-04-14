@@ -1,0 +1,24 @@
+aps : 5 1 5 9 11 12 
+fs : 13 2 3 4 0 2 3 4 0 5 0 0 4 0 
+
+rang : 5 0 2 2 3 1 
+
+distance depuis le sommet 1 : 5 0 2 3 4 5 
+
+tarjan 
+prem : 5 4 5 3 2 1 
+pilch : 0 0 0 0 0 0 
+cfc : 5 5 4 3 1 2 
+num : 0 1 2 3 5 4 
+
+Matrice d'adjacence : 
+5 8 0 0 0 0 
+0 0 1 1 1 0 
+0 0 1 1 1 0 
+0 0 0 0 0 1 
+0 0 0 0 0 0 
+0 0 0 0 1 0 
+
+Dijkstra : 
+Distance : 0 3 8 5 9 
+Prédecesseur : 1 1 2 1 3 
