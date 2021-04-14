@@ -48,12 +48,12 @@ public :
 
     //build
     void build();
-
+    std::vector<std::vector<int>> d_matrice_adjacence;
 protected :
 
     std::vector<int> d_fs;
     std::vector<int> d_aps;
-    std::vector<std::vector<int>> d_matrice_adjacence;
+
 
 private :
 

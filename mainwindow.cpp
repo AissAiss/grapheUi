@@ -17,6 +17,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+bool MainWindow::getEstValue() const
+{
+    return d_estValue;
+}
+
+graphe *MainWindow::getG()
+{
+    return G;
+}
+
+grapheValue* MainWindow::getGV()
+{
+    return GV;
+}
+
 
 void MainWindow::on_pushButton_build_clicked()
 {
@@ -160,4 +175,17 @@ void MainWindow::on_pushButton_parcourir_dijkstra_clicked()
     }
 
     ui->spinBox_dijkstra->cleanText();
+}
+
+void MainWindow::on_pushButton_dessiner_clicked()
+{
+    if(d_estValue)
+    {
+        graph = new DialogAfficheGraphe(this,d_estValue,nullptr,getGV());
+    }else{
+        graph = new DialogAfficheGraphe(this,d_estValue,getG());
+    }
+
+
+    graph->show();
 }

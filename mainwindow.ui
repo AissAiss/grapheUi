@@ -710,6 +710,19 @@
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="pushButton_dessiner">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>560</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>dessiner</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -717,7 +730,7 @@
      <x>0</x>
      <y>0</y>
      <width>1820</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

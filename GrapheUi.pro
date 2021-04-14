@@ -10,6 +10,8 @@ CONFIG += c++11
 
 SOURCES += \
     arbre.cpp \
+    dessingraphewidget.cpp \
+    dialogaffichegraphe.cpp \
     graphe.cpp \
     grapheValue.cpp \
     main.cpp \
@@ -17,11 +19,14 @@ SOURCES += \
 
 HEADERS += \
     arbre.h \
+    dessingraphewidget.h \
+    dialogaffichegraphe.h \
     graphe.h \
     grapheValue.h \
     mainwindow.h
 
 FORMS += \
+    dialogaffichegraphe.ui \
     mainwindow.ui
 
 # Default rules for deployment.

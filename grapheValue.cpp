@@ -72,6 +72,39 @@ void grapheValue::sauvgarde() const
     ost<<"Dijkstra : \n";
     ost<<"Distance : "<<getDijkstraDist()<<"\n";
     ost<<"Prédecesseur : "<<getDijkstraPred()<<"\n";
+    ost.close();
+
+    std::ofstream dij("Dijkstra.txt");
+    int nbArcDij = 0;
+    vector<int> succ{};
+
+    for(unsigned int i =1 ; i < d_dijkstra_dist.size(); ++i)
+    {
+        if(d_dijkstra_dist[i] != -1)
+        {
+            nbArcDij++;
+        }
+    }
+    dij<<d_dijkstra_dist.size()-1<<" "<<nbArcDij<<"\n";
+
+    for(unsigned int i =1; i < d_dijkstra_pred.size(); ++i)
+    {
+        int nbSuccI =0;
+        for(int j = 1; j < d_dijkstra_pred.size();++j)
+        {
+            if(d_dijkstra_pred[j] == i){
+                nbSuccI++;
+                succ.push_back(j);
+            }
+        }
+        dij<<nbSuccI;
+        for(int j =0; j < succ.size();++j){
+            dij<<" "<<succ[j];
+        }
+        dij<<"\n";
+        succ.clear();
+    }
+
 }
 
 void grapheValue::dijkstra(int s)

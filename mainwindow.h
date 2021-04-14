@@ -2,10 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "dessingraphewidget.h"
 #include "graphe.h"
 #include "arbre.h"
 #include "grapheValue.h"
+#include "dialogaffichegraphe.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,6 +19,10 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    bool getEstValue() const;
+    graphe* getG();
+    grapheValue* getGV();
 
 private slots:
 
@@ -32,11 +37,14 @@ private slots:
 
     void on_pushButton_parcourir_dijkstra_clicked();
 
+    void on_pushButton_dessiner_clicked();
+
 private:
     Ui::MainWindow *ui;
     bool d_estValue;
     grapheValue* GV;
     graphe* G;
     arbre* A;
+    DialogAfficheGraphe* graph;
 };
 #endif // MAINWINDOW_H

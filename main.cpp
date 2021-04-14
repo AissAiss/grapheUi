@@ -6,9 +6,9 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    QFile styleSheetFile("D:/Git/grapheUi/Combinear.qss");
+    QFile styleSheetFile("D:/L3/S6/GraphesAlgo/Projet/grapheUi/Combinear.qss");
 
-    //Jules D:/L3/S6/GraphesAlgo/Projet/Graphe/Combinear.qss
+    //Jules D:/L3/S6/GraphesAlgo/Projet/grapheUi/Combinear.qss
     //lucas D:/Git/grapheUi/Combinear.qss
 
     styleSheetFile.open(QFile::ReadOnly);
