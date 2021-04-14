@@ -106,7 +106,13 @@ void grapheValue::sauvgarde() const
     }
     dij.close();
 
+    graphe gr("Dijkstra.txt");
+    gr.adjacence();
     std::ofstream arbreDij("DijkstraArbre.txt");
+    arbreDij<<gr.getNbSommet()<<"\n";
+    arbreDij<<getAdjacence();
+
+
 
 }
 
@@ -130,11 +136,15 @@ void grapheValue::dijkstra(int s)
     for(int i = 0 ; i<= d_aps[0] ; ++i)
     {
         d_dijkstra_dist.push_back(d_matricePoidsArrete[s][i]);
-        d_dijkstra_pred.push_back(1);
+        d_dijkstra_pred.push_back(s);
     }
 
     int indiceJ = d_aps[s];
     int j = d_fs[indiceJ];
+    if(j==0)
+        {
+            S.clear();
+        }
 
     while(!S.empty())
     {

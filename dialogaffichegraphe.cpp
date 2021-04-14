@@ -15,7 +15,7 @@ DialogAfficheGraphe::DialogAfficheGraphe(QWidget *parent,bool estValue, graphe* 
 
     //dessin->resize(this->width(),this->height());
     dessin->resize(this->width(),this->height());
-    //this->setMaximumSize(this->width(),this->height());
+    this->resize(this->width()+200,this->height()+200);
 }
 
 DialogAfficheGraphe::~DialogAfficheGraphe()

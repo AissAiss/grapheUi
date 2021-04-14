@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Aissoui Froelich Mustafic Bangard Projet Graphe</string>
+   <string>Aissaoui Froelich Mustafic Bangard Projet Graphe</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_distance_titre">

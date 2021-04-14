@@ -31,7 +31,7 @@ QPoint DessinGrapheWidget::creePointEntre(int xg, int yh, int xd, int yb) const
     int x = distrX(gen);
     int y = distrY(gen);*/
 
-    srand(time(0));
+
     int x = xg + (int) ((float)rand() * (xd - xg+1) / (RAND_MAX-1));
     int y = yh + (int) ((float)rand() * (yb - yh+1) / (RAND_MAX-1));
 
@@ -55,7 +55,7 @@ void DessinGrapheWidget::paintEvent(QPaintEvent *event)
 
     int nbSommet = d_estValuee ? GraVal->getNbSommet() : Gra->getNbSommet();
     int xDepart = 15, yDepart = 15;
-    int xfin =this->width(), yfin = 623;
+    int xfin =paint.window().width(), yfin = 623;
     int incrementationX = xfin / nbSommet * 2;
     int incrementationY = (yfin / nbSommet) * 1.5;
 
@@ -69,7 +69,7 @@ void DessinGrapheWidget::paintEvent(QPaintEvent *event)
         paint.drawText(p.x()+15,p.y()-15,QString::number(i));
         paint.setPen(pen);
         xDepart+=incrementationX;
-        xDepart = (xDepart > xfin) ? 0 : xDepart;
+        xDepart = (xDepart + incrementationX > xfin) ? 0 : xDepart;
         if(i % 2 == 0){
             yDepart+=incrementationY;
         }
